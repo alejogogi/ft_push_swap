@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:54:19 by alejagom          #+#    #+#             */
-/*   Updated: 2024/10/23 05:25:15 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/03/15 21:00:33 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,18 @@
 
 int	ft_atoi(const char *str)
 {
-	int	res;
-	int	sig;
+	long	res;
+	long	sig;
 
 	res = 0;
 	sig = 1;
 	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
 		|| *str == '\f' || *str == '\r')
-	{
 		str++;
-	}
-	if (*str == '-')
+	if (*str == '-' || *str == '+')
 	{
-		sig = -1;
-		str++;
-	}
-	else if (*str == '+')
-	{
+		if (*str == '-')
+			sig = -1;
 		str++;
 	}
 	while (*str >= 48 && *str <= 57)

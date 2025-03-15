@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/15 17:36:42 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/03/15 21:21:09 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int parceo(char **args)
     while (args[i] != NULL)
 	{
 		j = 0;
+		//split va antes para separar la cadena y tratar cada argumento
 		if (args[i][j] == '-' || args[i][j] == '+')
-		j++;
+			j++;
 		while(args[i][j] != '\0')
 		{
 			if(!ft_isdigit(args[i][j]))
@@ -35,7 +36,7 @@ int parceo(char **args)
 	}
 	return 1;	
 }
-int main(int argc, char **argv)
+/* int main(int argc, char **argv)
 {
 	int result;
 	
@@ -50,4 +51,4 @@ int main(int argc, char **argv)
 	else 
 	printf("resultado correcto\n");
 	return(0);
-}
+} */
