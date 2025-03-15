@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:54:08 by alejagom          #+#    #+#             */
-/*   Updated: 2025/01/21 21:42:53 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/03/15 09:44:58 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,27 +27,27 @@ void	ft_bzero(void *s, size_t n)
 }
 
 
-int	main(void)
-{
-	char	pru[20] = "hola mundo";
-	size_t	d;
-	size_t	i;
+// int	main(void)
+// {
+// 	char	pru[20] = "hola mundo";
+// 	size_t	d;
+// 	size_t	i;
 
-	printf("escriba la distancia: ");
-	scanf("%zu", &d);
-	printf("sin cambios: %s\n", pru);
-	ft_bzero(pru, d);
-	printf("string con cambios: \n");
-	for (i = 0; i < 20; i++)
-	{
-		if (pru[i] == '\0')
-		{
-			printf("\\0");
-		}
-		else
-		{
-			printf("%c", pru[i]);
-		}
-	}
-	return (0);
-}
+// 	printf("escriba la distancia: ");
+// 	scanf("%zu", &d);
+// 	printf("sin cambios: %s\n", pru);
+// 	ft_bzero(pru, d);
+// 	printf("string con cambios: \n");
+// 	for (i = 0; i < 20; i++)
+// 	{
+// 		if (pru[i] == '\0')
+// 		{
+// 			printf("\\0");
+// 		}
+// 		else
+// 		{
+// 			printf("%c", pru[i]);
+// 		}
+// 	}
+// 	return (0);
+// }

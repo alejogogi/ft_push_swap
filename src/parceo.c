@@ -6,24 +6,43 @@
 /*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/15 07:35:44 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/03/15 09:47:26 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int parceo(const char *str, ...)
+int parceo(char *str)
 {
-    va_list args;
     int i;
-    int ln:
     
     i = 0;
-    if (str == NULL || str == '\0')
-    return NULL;
-    while(str[i])
+    if (!str)
+    return -1;
+    if (str[i] == '-' || str[i] == '+')
     {
-	if(str[i] >= 'A' && str[i] <= 'Z' || str[i] >= 'a' && str[i] <= 'z')
-	return NULL;
+	i++;
     }
-}   
+    while(str[i] != '\0')
+    {
+		if(!ft_isdigit(str[i]))
+			return -1;
+	printf("error");
+	i++;
+	}
+return 0;	
+}
+int main()
+{
+	char str[2];
+	int result;
+	
+	printf("nuemros a poner:");
+	scanf("%s\n", str);
+	result = parceo(str);
+	if (result == 0)
+	printf("resultado correcto\n");
+	else
+	printf("esta mal");
+	return(0);
+}

@@ -6,13 +6,13 @@
 /*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/14 22:14:16 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/03/15 08:32:11 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+/* #include "libft/libft.h"
 
 int ft_push_swap(int num, ...)
 {
     
-}
+} */

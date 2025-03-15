@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/15 06:48:56 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/03/15 09:43:31 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,4 +14,9 @@
 # define PUSH_SWAP_H
 #include <stdio.h>
 #include <stdarg.h>
-#include "libft.h"
+#include "../libft/libft.h"
+
+
+int parceo(char *str);
+
+#endif
