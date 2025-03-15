@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/15 09:43:31 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/03/15 17:13:37 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 #include "../libft/libft.h"
 
 
-int parceo(char *str);
+int parceo(char **args);
 
 #endif
