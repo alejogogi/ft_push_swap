@@ -6,49 +6,47 @@
 /*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/15 21:21:09 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/03/18 19:48:51 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int parceo(char **args)
+void	free_wd(char **words)
 {
-    int 	i;
-    int 	j;
 	
-    i = 1;
-    while (args[i] != NULL)
-	{
-		j = 0;
-		//split va antes para separar la cadena y tratar cada argumento
-		if (args[i][j] == '-' || args[i][j] == '+')
-			j++;
-		while(args[i][j] != '\0')
-		{
-			if(!ft_isdigit(args[i][j]))
-			{
-				return 0;
-			}
-			j++;
-		}
-		i++;
-	}
-	return 1;	
 }
-/* int main(int argc, char **argv)
-{
-	int result;
-	
-	if(argc < 2)
+
+int parceo(char **args) {
+    int i = 1;
+    int j;
+    char **strs;
+    char **split_result;
+	char **tmp;
+
+    while (args[i] != NULL) 
 	{
-	printf("numero de argumentos invalido\n");
-	return 1;
-	}	
-	result = parceo(argv);
-	if (result == 0)
-	printf("esta mal");
-	else 
-	printf("resultado correcto\n");
-	return(0);
-} */
+        split_result = ft_split(args[i], ' ');
+		strs = split_result;
+        while (*strs != NULL)
+		{
+            j = 0;
+            if ((*strs)[j] == '-' || (*strs)[j] == '+') {
+                j++;
+            }
+            while ((*strs)[j] != '\0') 
+			{
+                if (!isdigit((*strs)[j]))
+				{
+                    free(split_result);
+                    return 0;
+                }
+                j++;
+            }
+            strs++;
+        }
+        free(split_result);
+        i++;
+    }
+    return 1; 
+}
