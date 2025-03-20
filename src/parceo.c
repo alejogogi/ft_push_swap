@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parceo.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
+/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/18 19:48:51 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:27:53 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,42 @@
 
 void	free_wd(char **words)
 {
-	
+	int	i;
+
+	i = 0;
+	if (words == NULL)
+		return ;
+	while (words[i])
+	{
+		free(words[i]);
+		i++;
+	}
+	free(words);
 }
 
-int parceo(char **args) {
-    int i = 1;
-    int j;
-    char **strs;
-    char **split_result;
-	char **tmp;
+int	parceo(char **args)
+{
+	int		i;
+	char	**split_result;
+	char	**tmep;
 
-    while (args[i] != NULL) 
+	i = 1;
+	while (args[i] != NULL)
 	{
-        split_result = ft_split(args[i], ' ');
-		strs = split_result;
-        while (*strs != NULL)
+		split_result = ft_split(args[i], ' ');
+		tmep = split_result;
+		while (*tmep == NULL)
 		{
-            j = 0;
-            if ((*strs)[j] == '-' || (*strs)[j] == '+') {
-                j++;
-            }
-            while ((*strs)[j] != '\0') 
-			{
-                if (!isdigit((*strs)[j]))
-				{
-                    free(split_result);
-                    return 0;
-                }
-                j++;
-            }
-            strs++;
-        }
-        free(split_result);
-        i++;
-    }
-    return 1; 
+			tmep++;
+			free(split_result);
+			return (0);
+		}
+		if (!isnumber(split_result) || !single_number(*split_result))
+		{
+			return (0);
+		}
+		free_wd(split_result);
+		i++;
+	}
+	return (1);
 }
