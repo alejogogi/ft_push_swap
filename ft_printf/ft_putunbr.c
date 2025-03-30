@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/29 22:55:32 by alejogogi        ###   ########.fr       */
+/*   Created: 2024/10/31 13:03:56 by alejogogi         #+#    #+#             */
+/*   Updated: 2025/01/09 20:53:21 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	ft_putunbr(unsigned int num)
 {
-	int	result;
-	t_stacks	*stacks;
+	long	n;
+	int		ln;
 
-	if (argc < 2)
+	ln = 0;
+	n = num;
+	if (n >= 10)
 	{
-		ft_printf("numero de argumentos invalido\n");
-		return (1);
+		ln += ft_putunbr(n / 10);
 	}
-	result = parseo(argc, argv);
-	if (result == 0)
-		printf("Error\n");
-	else
-		printf("resultado correcto\n");
-	return (0);
+	ln += ft_putchar((n % 10) + '0');
+	return (ln);
 }

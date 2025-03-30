@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/29 22:55:32 by alejogogi        ###   ########.fr       */
+/*   Created: 2024/10/29 09:47:50 by alejogogi         #+#    #+#             */
+/*   Updated: 2025/02/07 16:47:48 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	main(int argc, char **argv)
-{
-	int	result;
-	t_stacks	*stacks;
+# include <stdarg.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-	if (argc < 2)
-	{
-		ft_printf("numero de argumentos invalido\n");
-		return (1);
-	}
-	result = parseo(argc, argv);
-	if (result == 0)
-		printf("Error\n");
-	else
-		printf("resultado correcto\n");
-	return (0);
-}
+int		ft_printf(const char *str, ...);
+int		ft_putchar(int c);
+int		ft_putstr(char *s);
+int		ft_puthex(unsigned long long num, char c);
+int		ft_putunbr(unsigned int num);
+int		ft_putpointer(void *ptr);
+int		ft_putnbr(int num);
+char	*ft_strchr(const char *s, int c);
+
+#endif

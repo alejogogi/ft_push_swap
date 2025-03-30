@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/29 22:55:32 by alejogogi        ###   ########.fr       */
+/*   Created: 2025/01/06 19:04:13 by alejogogi         #+#    #+#             */
+/*   Updated: 2025/01/08 21:34:13 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	ft_putpointer(void *ptr)
 {
-	int	result;
-	t_stacks	*stacks;
+	unsigned long long	a;
+	int					ln;
 
-	if (argc < 2)
+	ln = 0;
+	a = (unsigned long long)ptr;
+	if (!ptr)
 	{
-		ft_printf("numero de argumentos invalido\n");
-		return (1);
+		return (ft_putstr("(nil)"));
 	}
-	result = parseo(argc, argv);
-	if (result == 0)
-		printf("Error\n");
-	else
-		printf("resultado correcto\n");
-	return (0);
+	ln += ft_putstr("0x");
+	ln += ft_puthex(a, 'x');
+	return (ln);
 }

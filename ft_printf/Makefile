@@ -5,55 +5,42 @@
 #                                                     +:+ +:+         +:+      #
 #    By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/10 17:21:35 by alejagom          #+#    #+#              #
-#    Updated: 2025/03/28 15:26:09 by alejogogi        ###   ########.fr        #
+#    Created: 2024/11/01 17:42:24 by alejogogi         #+#    #+#              #
+#    Updated: 2025/01/06 21:32:26 by alejogogi        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = libftprintf.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src/push_swap.c src/parceo.c
-OBJ = $(SRC:.c=.o)
-LIB_DIR = libft
-FT_PRINTF_DIR = ft_printf
-LIBFT =	$(LIB_DIR)/libft.a
-FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
+SRC =	ft_printf.c ft_putchar.c\
+		ft_puthex.c ft_putnbr.c\
+		ft_putpointer.c ft_putstr.c\
+		ft_putunbr.c\
 
-INCLUDE = include/push_swap.h
-CC_FLAGS = -I./include
-LIBFT_INCLUDE = libft
-FT_PRINTF_INCLUDE = ft_printf
+OBJ = $(SRC:.c=.o)
+
+INCLUDE = ft_printf.h
 
 AR = ar rcs
 RM = rm -f
 
 .PHONY: all clean fclean re
 
-all: $(LIBFT) $(FT_PRINTF) $(NAME)
+all: $(NAME)
 
-$(LIBFT):
-	$(MAKE) -C $(LIB_DIR)
-
-$(FT_PRINTF):
-	$(MAKE) -C $(FT_PRINTF_DIR)
-
-$(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
+$(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
  
 %.o: %.c $(INCLUDE)
-	$(CC) $(CFLAGS) -I$(LIBFT_INCLUDE) -I$(FT_PRINTF_INCLUDE) -I. -c $< -o $@ 
+	$(CC) $(CFLAGS) -c -o $@ $<
 	
 clean: 
 	$(RM) $(OBJ)
-	$(MAKE) -C $(LIB_DIR) clean
-	$(MAKE) -C $(FT_PRINTF_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
-	$(MAKE) -C $(LIB_DIR) fclean
-	$(MAKE) -C $(FT_PRINTF_DIR) fclean
 
 re: fclean all

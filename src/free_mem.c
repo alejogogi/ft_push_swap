@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   free_mem.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/29 22:55:32 by alejogogi        ###   ########.fr       */
+/*   Created: 2025/03/28 16:01:18 by alejogogi         #+#    #+#             */
+/*   Updated: 2025/03/29 20:33:50 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	free_wd(char **words)
 {
-	int	result;
-	t_stacks	*stacks;
+	int	i;
 
-	if (argc < 2)
+	i = 0;
+	if (words == NULL)
+		return ;
+	while (words[i])
 	{
-		ft_printf("numero de argumentos invalido\n");
-		return (1);
+		free(words[i]);
+		i++;
 	}
-	result = parseo(argc, argv);
-	if (result == 0)
-		printf("Error\n");
-	else
-		printf("resultado correcto\n");
-	return (0);
+	free(words);
+}
+
+void free_stacks(t_stacks *stacks)
+{
+    if (stacks)
+    {
+        free_node(&stacks->stack_a);
+		free_node(&stacks->stack_b);
+        free(stacks);
+    }
 }

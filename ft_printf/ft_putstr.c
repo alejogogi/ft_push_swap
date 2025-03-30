@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/29 22:55:32 by alejogogi        ###   ########.fr       */
+/*   Created: 2024/10/29 10:44:09 by alejogogi         #+#    #+#             */
+/*   Updated: 2025/01/10 20:41:55 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
+#include <stdio.h>
 
-int	main(int argc, char **argv)
+int	ft_putstr(char *s)
 {
-	int	result;
-	t_stacks	*stacks;
+	int	c;
 
-	if (argc < 2)
+	c = 0;
+	if (!s)
+		s = "(null)";
+	while (s[c])
 	{
-		ft_printf("numero de argumentos invalido\n");
-		return (1);
+		ft_putchar(s[c]);
+		c++;
 	}
-	result = parseo(argc, argv);
-	if (result == 0)
-		printf("Error\n");
-	else
-		printf("resultado correcto\n");
-	return (0);
+	return (c);
 }
+
+// int	main(void)
+// {
+// 	char	*c = NULL;
+// 	int	b;
+
+// 	b = ft_putstr(c);
+// 	write (1, "\n", 1);
+// 	printf("long: %d\n", b);
+// 	return (0);
+// }
