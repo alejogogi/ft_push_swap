@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 15:59:53 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/30 23:04:44 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/03/31 23:16:02 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ char    **split_restore(char *arg, char **strs, int *ln)
         strs[*ln] = split_result[j];
         (*ln)++;
         j++;
+	ft_printf("TIENE esto la array%s\n", strs);
     }
     free(split_result);
     return (strs);
@@ -97,7 +98,7 @@ char    **array_str(char **agrs, int num)
     return (strs);
 }
 
-int	check_INT(int *array, int num)
+int	check_INT(long *array, int num)
 {
 	int	i;
 	long	arg;
@@ -106,17 +107,18 @@ int	check_INT(int *array, int num)
 	while(i < num)
 	{
 		arg = (long)array[i];
-		if(arg > INT_MAX || arg < INT_MIN)
+		if((arg > INT_MAX) || (arg < INT_MIN))
 		{
 			ft_printf("error es mayor que el INT_MAX y el INT_MIN\n");
-			free(array);
+			//free(array);
 			return(0);
 		}
+		i++;
 	}
 	return(1);
 }
 
-int	check_same(int *array, int num)
+int	check_same(long *array, int num)
 {
 	int	i;
 	int	j;
@@ -129,7 +131,8 @@ int	check_same(int *array, int num)
 		{
 			if (array[i] == array[j])
 			{
-				free(array);
+				ft_printf("numero repetido\n");
+				//free(array);
 				return(0);
 			}
 			j++;

@@ -6,13 +6,13 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 18:34:28 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/01/09 21:16:52 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/03/31 22:22:27 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int num)
+int	ft_putnbr(long num)
 {
 	long	n;
 	int		ln;

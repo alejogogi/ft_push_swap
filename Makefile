@@ -6,7 +6,7 @@
 #    By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 17:21:35 by alejagom          #+#    #+#              #
-#    Updated: 2025/03/28 15:26:09 by alejogogi        ###   ########.fr        #
+#    Updated: 2025/03/31 20:16:57 by alejogogi        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,11 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = src/push_swap.c src/parceo.c
 OBJ = $(SRC:.c=.o)
+
 LIB_DIR = libft
-FT_PRINTF_DIR = ft_printf
 LIBFT =	$(LIB_DIR)/libft.a
+
+FT_PRINTF_DIR = ft_printf
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
 INCLUDE = include/push_swap.h

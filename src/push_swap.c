@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/29 22:55:32 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/03/31 22:32:55 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 int	main(int argc, char **argv)
 {
-	int	result;
-	t_stacks	*stacks;
+	int	i = 0;
+	long int	*result;
+	//t_stacks	*stacks;
 
 	if (argc < 2)
 	{
@@ -23,9 +24,10 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	result = parseo(argc, argv);
-	if (result == 0)
-		printf("Error\n");
-	else
-		printf("resultado correcto\n");
+	while(result[i])
+	{
+		ft_printf("tiene esto %i\n", result[i]);
+		i++;
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/30 23:05:00 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/03/31 22:34:13 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <limits.h>
 # include <stddef.h>
 
-typedef struct  s_node
+/* typedef struct  s_node
 {
 	int		num;
 	int		s_index;
@@ -29,18 +29,18 @@ typedef struct  s_stack
 {
 	t_node		*stack_a;
 	t_node		*stack_b;
-}			t_stacks;
+}			t_stacks; */
 
-int		parseo(int argc, char **args);
+long int		*parseo(int argc, char **args);
 int		isnumber(char **str);
-int		*def_atoi(char **args, int num);
+long int		*def_atoi(char **args, int num);
 void		free_wd(char **words);
-void 		free_stacks(t_stacks *stacks);
+//void 		free_stacks(t_stacks *stacks);
 char		**array_str(char **agrs, int num);
 char    	**split_restore(char *arg, char **strs, int *ln);
 char		**mallstr(int num);
-int		check_INT(int *array, int num);
-int		check_same(int *array, int num);
+int		check_INT(long *array, int num);
+int		check_same(long *array, int num);
 
 
 
