@@ -6,20 +6,23 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/31 23:12:24 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/03 16:52:58 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_split(char **split_result)
+void	check_split(char **split_result)
 {
-	if (!split_result || !isnumber(split_result))
+	if (!split_result)
 	{
 		free_wd(split_result);
-		return (0);
 	}
-	return (1);
+	else
+	{
+		isnumber(split_result);
+		ft_printf("error\n");
+	}
 }
 
 /* int leng_total(int argc, char **args)
@@ -59,12 +62,10 @@ int	leng_total(int argc, char **args)
 
 	i = 1;
 	num = 0;
-	ft_printf("hpta %d\n", num);
 	while(i < argc)
 	{
 		split_res = ft_split(args[i], ' ');
-		if (!check_split(split_res))
-		return (0);
+		check_split(split_res);
 		j = 0;
 		while(split_res[j])
 		{
@@ -74,54 +75,55 @@ int	leng_total(int argc, char **args)
 		free_wd(split_res);
 		i++;
 	}
-	ft_printf("perra %d\n", num);
+	ft_printf("LONGITUD DE NUM %d\n", num);
 	return(num);
 }
 
-long int	*def_atoi(char **args, int num)
+int	*def_atoi(char **args, int num)
 {
-	long int	*num_array;
 	int	i;
 	int	ln;
-	char	**strs;
+	int 	*array;
+	char	**split_res;
+	int g;
 
-	strs = array_str(args, num);
-	int j = 0;
-	while(strs[j] != NULL)
-	{
-		ft_printf("tiene strd[%d]: esto la array%s\n", j, strs);
-		j++;
-	}
-	ln = 1;
-	i = 0;
-	num_array = (long *)malloc(num *sizeof(long));
-	if (!num_array)
-		return(NULL);
+	i = 1;
+	ln = 0;
+	array = (int *)malloc(sizeof(int) * num);
 	while (i < num)
 	{
-		num_array[i] = ft_atoi(strs[ln++]);
+		split_res = ft_split(args[i], ' ');
+		
+		if (!split_res)
+		{
+			free(array);
+			// ft_printf("Error\n");
+		}
+		split_number(split_res, array, &ln);
+		for (g = 0; array[g]; g++)
+		{
+		    printf("VAMOS %d\n", array[g]);
+		}
 		i++;
 	}
-	free_wd(strs);
-	if(!check_INT(num_array, num) || !check_same(num_array, num))
-	{
-		//free(num_array);
-		return(0);
-	}
-	return(num_array);
+	return(array);
 }
 
-long int	*parseo(int argc, char **args)
+int	*parseo(int argc, char **args)
 {
 	int	num;
-	long int	*array;
+	int	*numbers;
+	int	i = 0;
 
 	num = leng_total(argc, args);
 	ft_printf("longitud de argumentos %d\n", num);
-	array = def_atoi(args, num);
-	ft_printf("BUENA %d\n", array);
-
-	return (array);
+	numbers = def_atoi(args, num);
+	while(!numbers[i])
+	{
+		ft_printf("BUENA %d\n", numbers[i]);
+		i++;
+	}
+	return (numbers);
 }
 /* int parceo(char **args)
 {

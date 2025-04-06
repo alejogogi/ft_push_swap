@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/31 22:34:13 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/03 16:40:39 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,13 @@ typedef struct  s_stack
 	t_node		*stack_b;
 }			t_stacks; */
 
-long int		*parseo(int argc, char **args);
-int		isnumber(char **str);
-long int		*def_atoi(char **args, int num);
+int		*parseo(int argc, char **args);
+void		isnumber(char **str);
+int		*def_atoi(char **args, int num);
 void		free_wd(char **words);
+void    	split_number(char **args, int *array, int *ln);
 //void 		free_stacks(t_stacks *stacks);
-char		**array_str(char **agrs, int num);
-char    	**split_restore(char *arg, char **strs, int *ln);
 char		**mallstr(int num);
-int		check_INT(long *array, int num);
 int		check_same(long *array, int num);
 
 

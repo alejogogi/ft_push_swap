@@ -6,13 +6,13 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 15:59:53 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/31 23:16:02 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/03 16:52:14 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	isnumber(char **str)
+void	isnumber(char **str)
 {
 	int		j;
 
@@ -25,7 +25,7 @@ int	isnumber(char **str)
 		}
 		if ((*str)[j] == '\0')
 		{
-			return 0;
+			ft_printf("error\n");
 			free_wd(str);
 		}
 		while ((*str)[j] != '\0')
@@ -33,89 +33,26 @@ int	isnumber(char **str)
 			if (!ft_isdigit((*str)[j]))
 			{
 				free_wd(str);
-				return (0);
+				ft_printf("error\n");
 			}
 			j++;
 		}
 		str++;
 	}
-	return (1);
 }
 
-char	**mallstr(int num)
+void    split_number(char **args, int *array, int *ln)
 {
-	char	**strs;
-
-	strs = (char **)malloc((num + 1) * sizeof(char *));
-	if (!strs)
-	{
-		return (0);
-	}
-	return(strs);
-}
-
-char    **split_restore(char *arg, char **strs, int *ln)
-{
-    char    **split_result;
-    int j;
-
+    int	j;
+    
     j = 0;
-    split_result = ft_split(arg, ' ');
-    if (!split_result)
+    while(args[j])
     {
-        free(strs);
-        return (0);
+	array[*ln] = ft_atoi(args[j]);
+	(*ln)++;
+	j++;
     }
-    while (split_result[j])
-    {
-        strs[*ln] = split_result[j];
-        (*ln)++;
-        j++;
-	ft_printf("TIENE esto la array%s\n", strs);
-    }
-    free(split_result);
-    return (strs);
-}
-
-char    **array_str(char **agrs, int num)
-{
-    char    **strs;
-    int i;
-    int ln;
-
-    strs = mallstr(num);
-    if (!strs)
-        return (0);
-    i = 0;
-    ln = 0;
-    while (agrs[i])
-    {
-        if (!split_restore(agrs[i], strs, &ln))
-            return (0);
-        i++;
-    }
-    strs[ln] = NULL;
-    return (strs);
-}
-
-int	check_INT(long *array, int num)
-{
-	int	i;
-	long	arg;
-
-	i = 0;
-	while(i < num)
-	{
-		arg = (long)array[i];
-		if((arg > INT_MAX) || (arg < INT_MIN))
-		{
-			ft_printf("error es mayor que el INT_MAX y el INT_MIN\n");
-			//free(array);
-			return(0);
-		}
-		i++;
-	}
-	return(1);
+    free_wd(args);
 }
 
 int	check_same(long *array, int num)
