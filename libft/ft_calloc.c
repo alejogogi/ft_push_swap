@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
+/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 18:39:16 by alejogogi         #+#    #+#             */
-/*   Updated: 2024/10/21 01:36:51 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/04/09 20:15:11 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_calloc(size_t num, size_t size)
 	{
 		return (NULL);
 	}
-	ft_memset(ptr, 0, num * size);
+	ft_bzero(ptr, num * size);
 	return (ptr);
 }
 

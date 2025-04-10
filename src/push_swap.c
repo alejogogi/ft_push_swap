@@ -6,35 +6,37 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/03 16:58:26 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/10 21:38:27 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void print_array(int *array, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        printf("Elemento %d: %d\n", i, array[i]);
+    }
+}
+
 int	main(int argc, char **argv)
 {
-	int	i = 0;
-	int	*result;
-	//t_stacks	*stacks;
+	int	ln;
+	int	*array;
 
-	int o = 1;
-	while(argv[o])
-	{
-		ft_printf("LOS ARGUMENRTOS TIENEN ESTO %s\n", argv[o]);
-		o++;
-	}
-
-	if (argc <= 2)
+	ln = 0;
+	if (argc < 2)
 	{
 		ft_printf("numero de argumentos invalido\n");
-		return (1);
+		return (0);
 	}
-	result = parseo(argc, argv);
-	while(result[i])
-	{
-		ft_printf("tiene esto %i\n", result[i]);
-		i++;
-	}
+	ln = check_leng(argc, argv);
+	array = ext_atoi(ln, argc, argv);
+	check_same(array, ln);
+	index(array, ln);
+	print_array(array, ln);
+	ft_printf("cantidad de argumentos a guardar %d\n", ln);
+	free(array);
 	return (0);
 }

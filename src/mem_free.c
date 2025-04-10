@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   mem_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 21:55:09 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/07 21:33:30 by alejogogi        ###   ########.fr       */
+/*   Created: 2025/04/07 20:27:27 by alejogogi         #+#    #+#             */
+/*   Updated: 2025/04/09 20:43:53 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_isdigit(int c)
+void	free_wd(char **words)
 {
-	if (c >= '0' && c <= '9')
+	int	i;
+
+	i = 0;
+	if (words == NULL)
+		return ;
+	while (words[i])
 	{
-		return (1);
+		free(words[i]);
+		i++;
 	}
-	return (0);
+	free(words);
 }

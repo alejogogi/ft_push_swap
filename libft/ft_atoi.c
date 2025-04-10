@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:54:19 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/02 20:11:34 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/09 21:56:58 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 
 static int	limits(long res, long sig)
 {
-	if ((sig == 1 && res > INT_MAX) || (sig == -1 && -res < INT_MIN))
+	if ((sig == 1 && res > INT_MAX) || (sig == -1 && (-res < INT_MIN)))
 	{
-		printf("Error\n");
-		return(0);
+		return (0);
 	}
-	return(1);
+	return (1);
 }
 
 int	ft_atoi(const char *str)
@@ -43,13 +42,13 @@ int	ft_atoi(const char *str)
 	{
 		res = res * 10 + (*str - '0');
 		if (!limits(res, sig))
-			return(0);
+			return (0);
 		str++;
 	}
 	return (res * sig);
 }
 
-/* 
+/*
 int	main(void)
 {
 	char	str[20];

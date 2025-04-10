@@ -6,116 +6,82 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 09:53:46 by alejogogi         #+#    #+#             */
-/*   Updated: 2024/10/24 16:55:03 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/09 20:46:18 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	ft_count_words(const char *s, int c);
-
-static size_t	*ft_counter_begin(const char *s, char c)
+static void	free_memory(char **result, int i_word)
 {
-	size_t	i;
-	size_t	j;
-	size_t	*aux_b;
-
-	i = 0;
-	j = 0;
-	aux_b = malloc((ft_count_words(s, c)) * sizeof(size_t));
-	if (!aux_b)
-		return (NULL);
-	while (s[i] != '\0')
-	{
-		if ((i == 0 && s[i] != c) || (i >= 1 && (s[i] != c && s[i - 1] == c)))
-		{
-			aux_b[j] = i;
-			j++;
-		}
-		i++;
-	}
-	return (aux_b);
+	while (i_word > 0)
+		free(result[--i_word]);
+	free(result);
 }
 
-static size_t	*ft_counter_end(const char *s, char c)
+static int	ft_contador(char const *s, char c)
 {
-	size_t	i;
-	size_t	t;
-	size_t	*aux_e;
+	int	i;
+	int	cont;
 
 	i = 0;
-	t = 0;
-	aux_e = malloc((ft_count_words(s, c)) * sizeof(size_t));
-	if (!aux_e)
-		return (NULL);
+	cont = 0;
 	while (s[i] != '\0')
 	{
-		if ((s[i] != c && s[i + 1] == s[ft_strlen(s)])
-			|| ((s[i] != c && s[i + 1] == c)))
+		if (s[i] == c)
+			i++;
+		else
 		{
-			aux_e[t] = i;
-			t++;
+			cont++;
+			while (s[i] != c && s[i] != '\0')
+				i++;
 		}
-		i++;
 	}
-	return (aux_e);
+	return (cont);
 }
 
-static unsigned int	ft_count_words(const char *s, int c)
+static char	**new_words(char **result, char const *s, char c)
 {
-	unsigned int	count_words;
-	int				i;
+	int	i;
+	int	start;
+	int	i_word;
 
 	i = 0;
-	count_words = 0;
+	i_word = 0;
 	while (s[i])
 	{
-		if ((i == 0 && s[i] != c) || (i >= 1 && (s[i] != c && s[i - 1] == c)))
-			count_words++;
-		i++;
+		while (s[i] == c)
+			i++;
+		start = i;
+		while (s[i] && s[i] != c)
+			i++;
+		if (start < i)
+		{
+			result[i_word] = ft_substr(s, start, i - start);
+			if (result[i_word] == NULL)
+				return (NULL);
+			i_word++;
+		}
 	}
-	return (count_words);
+	result[i_word] = NULL;
+	return (result);
 }
 
-static void	*ft_free(char **ptr, int i, size_t *aux_b, size_t *aux_e)
+char	**ft_split(char const *s, char c)
 {
-	while (i >= 0)
-	{
-		free(*(ptr + i));
-		i--;
-	}
-	free(aux_b);
-	free(aux_e);
-	free(ptr);
-	return (NULL);
-}
+	char	**result;
+	int		c_words;
 
-char	**ft_split(const char *s, char c)
-{
-	char	**ptr;
-	size_t	*aux_b;
-	size_t	*aux_e;
-	size_t	n;
-
-	if (!s)
+	c_words = ft_contador(s, c);
+	result = (char **)ft_calloc((c_words + 1), sizeof(char *));
+	if (!result)
 		return (NULL);
-	aux_b = ft_counter_begin(s, c);
-	if (!aux_b)
-		return (NULL);
-	aux_e = ft_counter_end(s, c);
-	if (!aux_e)
-		return (free(aux_b), NULL);
-	ptr = (char **)ft_calloc((ft_count_words(s, c) + 1), sizeof(char *));
-	if (!ptr)
-		return (free(aux_b), free(aux_e), NULL);
-	n = -1;
-	while (++n < ft_count_words(s, c))
+	if (new_words(result, s, c) == NULL)
 	{
-		*(ptr + n) = ft_substr(s, aux_b[n], (aux_e[n] - aux_b[n] + 1));
-		if (!*(ptr + n))
-			return (ft_free(ptr, n, aux_b, aux_e));
+		free_memory(result, c_words);
+		return (NULL);
 	}
-	return (free(aux_b), free(aux_e), ptr);
+	return (result);
 }
 
 /*
