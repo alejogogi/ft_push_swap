@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:34:41 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/10 19:40:31 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/11 22:28:21 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	*save_mem(int ln)
 	int	*array;
 
 	array = (int *)malloc(ln * sizeof(int));
-	if(!array)
+	if (!array)
 	{
 		ft_printf("error\n");
 	}
-	return(array);
+	return (array);
 }
 
 void	aux_atoi(char **temp, int *array, int *ps)
@@ -29,7 +29,7 @@ void	aux_atoi(char **temp, int *array, int *ps)
 	int	i;
 
 	i = 0;
-	while(temp[i] != NULL)
+	while (temp[i])
 	{
 		array[*ps] = ft_atoi(temp[i]);
 		i++;
@@ -37,12 +37,13 @@ void	aux_atoi(char **temp, int *array, int *ps)
 	}
 	free_wd(temp);
 }
+
 int	*ext_atoi(int ln, int argc, char **argv)
 {
-	int	*array;
+	int		*array;
 	char	**temp;
-	int	ps;
-	int	i;
+	int		ps;
+	int		i;
 
 	i = 1;
 	ps = 0;
@@ -52,7 +53,7 @@ int	*ext_atoi(int ln, int argc, char **argv)
 	while (i < argc)
 	{
 		temp = ft_split(argv[i], ' ');
-		if(!temp)
+		if (!temp)
 		{
 			free(array);
 			ft_printf("error\n");

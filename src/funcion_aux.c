@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:20:16 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/10 20:08:55 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/12 00:10:32 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	check_digit(char *one)
 	i = 0;
 	while (one[i] != '\0')
 	{
-		if (one[i] == '-' || one[i] == '+')
+		if (i == 0 && (one[i] == '-' || one[i] == '+'))
 			i++;
-		if (!ft_isdigit(one[i]))
+		else if (!ft_isdigit(one[i]))
 			return (1);
 		i++;
 	}
@@ -51,9 +51,9 @@ int	first_arg(char *argv)
 
 	o = 0;
 	one = ft_split(argv, ' ');
-	while (one[o] != NULL)
+	while (one[o])
 	{
-		if (check_digit(one[o]) != 0)
+		if (check_digit(one[o]))
 		{
 			free_wd(one);
 			ft_printf("error\n");
@@ -79,14 +79,13 @@ int	ft_leng(char *argv)
 
 	ln = 0;
 	j = 0;
-	split_result = (ft_split(argv, ' '));
+	split_result = ft_split(argv, ' ');
 	while (split_result[j] != NULL)
 	{
-		if (check_digit(split_result[j]) != 0 || ft_atoi(split_result[j]) == 0)
+		if (check_digit(split_result[j]) != 0)
 		{
-			ft_printf("error\n");
 			free_wd(split_result);
-			return (0);
+			return (-1);
 		}
 		ln++;
 		j++;
