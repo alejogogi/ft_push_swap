@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/12 12:27:13 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/12 16:21:08 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,20 @@
 # include "../libft/libft.h"
 # include <limits.h>
 # include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
 
-/* typedef struct  s_node
+typedef struct s_node
 {
-	int		num;
-	int		s_index;
-	struct s_node	*next
+	int	num;
+	int	index;
+	struct s_node *next;
 }			t_node;
 
 typedef struct  s_stack
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
-}			t_stacks; */
+}			t_stacks;
 
 int			check_leng(int argc, char **argv);
 int			ft_leng(char *argv);
