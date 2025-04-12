@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:34:41 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/12 12:23:16 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/12 12:28:56 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	*save_mem(int ln)
 
 void	aux_atoi(char **temp, int *array, int *ps)
 {
-	int	i;
+	int		i;
 	long	atoi;
 
 	i = 0;
