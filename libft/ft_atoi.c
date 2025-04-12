@@ -6,23 +6,14 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:54:19 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/11 23:52:18 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/12 11:04:27 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <limits.h>
 
-static int	limits(long res, long sig)
-{
-	if ((sig == 1 && res > INT_MAX) || (sig == -1 && (-res < INT_MIN)))
-	{
-		return (0);
-	}
-	return (1);
-}
-
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	long	res;
 	long	sig;
@@ -41,8 +32,6 @@ int	ft_atoi(const char *str)
 	while (*str >= 48 && *str <= 57)
 	{
 		res = res * 10 + (*str - '0');
-		if (!limits(res, sig))
-			return (0);
 		str++;
 	}
 	return (res * sig);

@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/12 00:04:29 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/12 12:23:42 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_same(int *array, int ln)
 		{
 			if (array[i] == array[j])
 			{
-				ft_printf("error\n");
+				ft_printf("Error\n");
 				free(array);
 				exit(EXIT_FAILURE);
 			}
@@ -49,10 +49,10 @@ int	check_leng(int argc, char **argv)
 	}
 	while (i < argc)
 	{
-		if (check_empty(argv[i]) != 0 || ft_leng(argv[i]) == -1)
+		if (check_empty(argv[i]) != 0 || ft_leng(argv[i]) == -1)//revisar el int max para que imprima Error
 		{
-			ft_printf("error\n");
-			return (0);
+			ft_printf("Error\n");
+			exit(1);
 		}
 		leng += ft_leng(argv[i]);
 		i++;

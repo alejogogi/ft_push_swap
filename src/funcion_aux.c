@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:20:16 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/12 00:10:32 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/12 12:22:37 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ int	check_digit(char *one)
 	while (one[i] != '\0')
 	{
 		if (i == 0 && (one[i] == '-' || one[i] == '+'))
+		{
 			i++;
+			if (!ft_isdigit(one[i]))
+				return (1);
+		}
 		else if (!ft_isdigit(one[i]))
 			return (1);
 		i++;
@@ -56,7 +60,7 @@ int	first_arg(char *argv)
 		if (check_digit(one[o]))
 		{
 			free_wd(one);
-			ft_printf("error\n");
+			ft_printf("Error\n");
 			return (1);
 		}
 		o++;
@@ -64,7 +68,7 @@ int	first_arg(char *argv)
 	if (o < 2)
 	{
 		free_wd(one);
-		ft_printf("error\n");
+		ft_printf("Error\n");
 		return (1);
 	}
 	free_wd(one);
@@ -79,7 +83,7 @@ int	ft_leng(char *argv)
 
 	ln = 0;
 	j = 0;
-	split_result = ft_split(argv, ' ');
+	split_result = (ft_split(argv, ' '));
 	while (split_result[j] != NULL)
 	{
 		if (check_digit(split_result[j]) != 0)

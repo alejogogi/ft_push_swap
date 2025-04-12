@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/11 21:59:58 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/12 11:15:16 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ void		check_same(int *array, int ln);
 int			*ft_index(int *array, int ln);
 void		bubble_sort(int ln, int *num);
 void		print_array(int *array, int size, char *word);//borrar no permitida.
+int			ft_limits(long res);
+
 
 #endif
