@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:34:41 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/12 12:28:56 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/13 22:33:45 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int	*save_mem(int ln)
 	array = (int *)malloc(ln * sizeof(int));
 	if (!array)
 	{
+		free(array);
 		ft_printf("Error\n");
+		exit(1);
 	}
 	return (array);
 }

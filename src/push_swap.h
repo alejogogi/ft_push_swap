@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/12 16:21:08 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/13 23:04:11 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,37 @@
 
 typedef struct s_node
 {
-	int	num;
-	int	index;
-	struct s_node *next;
-}			t_node;
+	int				num;
+	int				index;
+	struct s_node	*next;
+}					t_node;
 
-typedef struct  s_stack
+typedef struct s_stack
 {
-	t_node	*stack_a;
-	t_node	*stack_b;
-}			t_stacks;
+	t_node			*stack_a;
+	t_node			*stack_b;
+}					t_stacks;
 
-int			check_leng(int argc, char **argv);
-int			ft_leng(char *argv);
-void		free_wd(char **words);
-int			first_arg(char *argv);
-int			check_digit(char *one);
-int			check_empty(char *argv);
-int			*ext_atoi(int ln, int argc, char **argv);
-int			*save_mem(int ln);
-void		check_same(int *array, int ln);
-int			*ft_index(int *array, int ln);
-void		bubble_sort(int ln, int *num);
-void		print_array(int *array, int size, char *word); // borrar no permitida.
-int			ft_limits(long res);
+int					check_leng(int argc, char **argv);
+int					ft_leng(char *argv);
+
+void				free_wd(char **words);
+void				free_nodes(t_stacks *stakcs);
+
+int					first_arg(char *argv);
+int					check_digit(char *one);
+int					check_empty(char *argv);
+int					*ext_atoi(int ln, int argc, char **argv);
+int					*save_mem(int ln);
+void				check_same(int *array, int ln);
+int					*ft_index(int *array, int ln);
+void				bubble_sort(int ln, int *num);
+void				print_array(int *array, int size, char *word); // borrar no permitida.
+int					ft_limits(long res);
+
+t_stacks			*create_stack(void);
+t_node				*create_node(int num, int index, t_stacks *stacks);
+void				data_stack_a(t_stacks *stakcs, int *array, int *index,
+						int ln);
 
 #endif

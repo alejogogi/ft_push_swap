@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 21:39:07 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/11 21:32:08 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/13 23:00:30 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,5 @@ int	*ft_index(int *array, int ln)
 	ft_printf("\n");
 	print_array(indexes, ln, "index");
 	free(num);
-	free(indexes);
-	return (array);
+	return (indexes);
 }

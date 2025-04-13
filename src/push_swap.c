@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/12 15:46:40 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/13 23:02:06 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,23 @@ void	print_array(int *array, int size, char *word)
     }
 }//borrar no permitida
 
+void print_list(t_node *head)
+{
+    t_node *current = head; // Empezamos desde la cabeza de la lista
+
+    while (current != NULL) // Mientras no lleguemos al final (NULL)
+    {
+        printf("Stack(A) Número: %d, Índice: %d\n", current->num, current->index);
+        current = current->next; // Pasar al siguiente nodo
+    }
+}
+
 int	main(int argc, char **argv)
 {
 	int	ln;
 	int	*array;
+	int	*index;
+	t_stacks *stacks;
 
 	ln = 0;
 	if (argc < 2)
@@ -35,10 +48,16 @@ int	main(int argc, char **argv)
 	ln = check_leng(argc, argv);
 	array = ext_atoi(ln, argc, argv);
 	check_same(array, ln);
-	ft_index(array, ln);
+	index = ft_index(array, ln);
+	stacks = create_stack();
+	data_stack_a(stacks, array, index, ln);
+	ft_printf("\n");
+	print_list(stacks->stack_a);
 	ft_printf("\n");
 	print_array(array, ln, "elemento");
 	ft_printf("cantidad de argumentos a guardar %d\n", ln);
 	free(array);
+	free(index);
+	free_nodes(stacks);
 	return (0);
 }
