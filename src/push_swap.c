@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/13 23:02:06 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/14 22:56:17 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,13 @@ int	main(int argc, char **argv)
 	array = ext_atoi(ln, argc, argv);
 	check_same(array, ln);
 	index = ft_index(array, ln);
+	ft_printf("\n");//borrar.
 	stacks = create_stack();
 	data_stack_a(stacks, array, index, ln);
-	ft_printf("\n");
 	print_list(stacks->stack_a);
-	ft_printf("\n");
+	ft_printf("\n");//borrar.
+	algorithms(stacks, ln);
+	ft_printf("\n");//borrar.
 	print_array(array, ln, "elemento");
 	ft_printf("cantidad de argumentos a guardar %d\n", ln);
 	free(array);

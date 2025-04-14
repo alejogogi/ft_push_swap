@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 16:37:12 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/13 23:12:25 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/14 18:33:30 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void	data_stack_a(t_stacks *stakcs, int *array, int *index, int ln)
 {
 	int	i;
 
-	i = 0;
-	while (i < ln)
+	i = ln - 1;
+	while (i >= 0)
 	{
 		create_node(array[i], index[i], stakcs);
-		i++;
+		i--;
 	}
 }
 
