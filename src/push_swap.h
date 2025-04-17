@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/14 22:47:46 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/17 13:29:12 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void 				print_list(t_node *head);//borrar.
 int					ft_limits(long res);
 
 t_stacks			*create_stack(void);
+int					search_min(t_node *stakc);
+int					search_max(t_node *stakc);
 t_node				*create_node(int num, int index, t_stacks *stacks);
 void				algorithms(t_stacks *t_stacks, int ln);
 void				data_stack_a(t_stacks *stakcs, int *array, int *index,
