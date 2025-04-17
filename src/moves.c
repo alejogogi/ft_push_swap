@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 18:26:52 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/17 20:14:59 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/04/17 20:25:55 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,4 @@ void    reverse_rotate(t_node **stack, char letter)
 
 	ft_printf("r");
 	ft_printf("%c\n", letter);
-}
+}  mera loca 
