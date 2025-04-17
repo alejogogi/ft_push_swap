@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithms.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:18:13 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/17 13:32:22 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/17 20:14:59 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,33 +52,6 @@ int	ordered_list(t_stacks *stakcs)
 	return (1);
 }
 
-void	swap(t_node *stack, char letter)
-{
-	t_node *primero;
-	t_node *segundo;
-	t_node *tercero;
-	
-	primero = stack;
-	segundo = stack->next;
-	tercero = segundo->next;
-
-	segundo->next = primero;
-	primero->next = tercero;
-	stack = segundo;
-	print_list(stack);//borrar
-	ft_printf("s");
-	ft_printf("%c\n", letter);
-}
-
-void	case_three(t_node *stack, int ln)
-{
-	int	min;
-	int	max;
-
-	min = search_min(stack);
-	max = search_max(stack);
-	ft_printf("%d\n", min, ln, max);
-}
 
 void	algorithms(t_stacks *t_stacks, int ln)
 {

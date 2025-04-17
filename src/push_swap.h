@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/17 13:29:12 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/17 20:14:59 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,8 @@ t_node				*create_node(int num, int index, t_stacks *stacks);
 void				algorithms(t_stacks *t_stacks, int ln);
 void				data_stack_a(t_stacks *stakcs, int *array, int *index,
 						int ln);
+void				rotate(t_node **stack, char letter);
+void    			reverse_rotate(t_node **stack, char letter);
+void				swap(t_node *stack, char letter);
 
 #endif
