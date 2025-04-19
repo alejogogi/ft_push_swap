@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithms.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:18:13 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/17 20:14:59 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/04/19 14:02:34 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	bubble_sort(int ln, int *num)
 	}
 }
 
-int	ordered_list(t_stacks *stakcs)
+int	ordered_list(t_stacks *stacks)
 {
 	t_node	*temp;
 
-	temp = stakcs->stack_a;
-	if (!stakcs || !stakcs->stack_a || stakcs->stack_a->next)
-		return(1);
-	while(temp->next)
+	if (!stacks || !stacks->stack_a->head || stacks->stack_a->head->next)
+		return (1);
+	temp = stacks->stack_a->head;
+	while (temp->next)
 	{
 		if (temp->index > temp->next->index)
 			return (0);
@@ -52,16 +52,17 @@ int	ordered_list(t_stacks *stakcs)
 	return (1);
 }
 
-
 void	algorithms(t_stacks *t_stacks, int ln)
 {
-	if(!ordered_list(t_stacks))
+	if (!ordered_list(t_stacks))
 	{
 		free_nodes(t_stacks);
 		exit(0);
 	}
 	if (ln == 2)
-		swap(t_stacks->stack_a, 'a');
+		swap(&(t_stacks->stack_a), 'a');
 	if (ln == 3)
-		case_three(t_stacks->stack_a, ln);
+		case_three(&(t_stacks->stack_a), 'a');
+	if (ln <= 7)
+		case_seven(&(t_stacks));
 }

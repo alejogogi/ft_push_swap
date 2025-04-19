@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/14 22:56:17 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/19 14:10:27 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	print_array(int *array, int size, char *word)
     }
 }//borrar no permitida
 
-void print_list(t_node *head)
+void print_list(t_stack *head)
 {
-    t_node *current = head; // Empezamos desde la cabeza de la lista
+    t_node *current = head->head; // Empezamos desde la cabeza de la lista
 
     while (current != NULL) // Mientras no lleguemos al final (NULL)
     {
@@ -56,7 +56,6 @@ int	main(int argc, char **argv)
 	ft_printf("\n");//borrar.
 	algorithms(stacks, ln);
 	ft_printf("\n");//borrar.
-	print_array(array, ln, "elemento");
 	ft_printf("cantidad de argumentos a guardar %d\n", ln);
 	free(array);
 	free(index);
