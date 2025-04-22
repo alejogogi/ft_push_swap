@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithms.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:18:13 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/20 00:01:52 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/22 17:50:29 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,5 @@ void	algorithms(t_stacks *t_stacks, int ln)
 	if (ln == 3)
 		case_three(&(t_stacks->stack_a), 'a');
 	if (ln <= 7)
-		my_algoritmo(&(t_stacks));
-		//case_seven(&(t_stacks));
+		case_seven(&(t_stacks));
 }

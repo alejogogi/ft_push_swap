@@ -3,33 +3,30 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+         #
+#    By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 17:21:35 by alejagom          #+#    #+#              #
-#    Updated: 2025/03/31 20:16:57 by alejogogi        ###   ########.fr        #
+#    Updated: 2025/04/22 17:49:41 by alejagom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
-
+NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-
-SRC = src/push_swap.c src/parceo.c
+SRC_DIR = ./src
+SRC = $(wildcard $(SRC_DIR)/*.c) 
 OBJ = $(SRC:.c=.o)
 
-LIB_DIR = libft
+LIB_DIR = ./libft
 LIBFT =	$(LIB_DIR)/libft.a
 
-FT_PRINTF_DIR = ft_printf
+FT_PRINTF_DIR = ./ft_printf
 FT_PRINTF = $(FT_PRINTF_DIR)/libftprintf.a
 
 INCLUDE = include/push_swap.h
-CC_FLAGS = -I./include
 LIBFT_INCLUDE = libft
 FT_PRINTF_INCLUDE = ft_printf
 
-AR = ar rcs
 RM = rm -f
 
 .PHONY: all clean fclean re
@@ -43,18 +40,19 @@ $(FT_PRINTF):
 	$(MAKE) -C $(FT_PRINTF_DIR)
 
 $(NAME): $(OBJ) $(LIBFT) $(FT_PRINTF)
-	$(AR) $(NAME) $(OBJ)
- 
-%.o: %.c $(INCLUDE)
-	$(CC) $(CFLAGS) -I$(LIBFT_INCLUDE) -I$(FT_PRINTF_INCLUDE) -I. -c $< -o $@ 
+	$(CC) -o $(NAME) $(OBJ) $(LIBFT) $(FT_PRINTF)
+	
+	@clear
+%.o: %.c 
+	$(CC) $(CFLAGS) -c $< -o $@ 
 	
 clean: 
 	$(RM) $(OBJ)
 	$(MAKE) -C $(LIB_DIR) clean
 	$(MAKE) -C $(FT_PRINTF_DIR) clean
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:
+	$(RM) $(OBJ) $(NAME)
 	$(MAKE) -C $(LIB_DIR) fclean
 	$(MAKE) -C $(FT_PRINTF_DIR) fclean
 
