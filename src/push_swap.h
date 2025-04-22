@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/19 14:04:18 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/20 19:49:23 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void				push_specific_node(t_stack **stack_a, t_stack **stack_b,
 void				push(t_stack *from, t_stack *to, char letter);
 
 void				case_three(t_stack **stack, char letter);
-void				case_four(t_stacks **stakcs);
 void				case_seven(t_stacks **stakcs);
 
 #endif

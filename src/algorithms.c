@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:18:13 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/19 14:02:34 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/20 00:01:52 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void	algorithms(t_stacks *t_stacks, int ln)
 	if (ln == 3)
 		case_three(&(t_stacks->stack_a), 'a');
 	if (ln <= 7)
-		case_seven(&(t_stacks));
+		my_algoritmo(&(t_stacks));
+		//case_seven(&(t_stacks));
 }
