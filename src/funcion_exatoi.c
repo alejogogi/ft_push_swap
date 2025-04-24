@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:34:41 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/13 22:33:45 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/24 23:28:45 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	aux_atoi(char **temp, int *array, int *ps)
 		atoi = ft_atoi(temp[i]);
 		if (!ft_limits(atoi))
 		{
+			free(array);
 			free_wd(temp);
 			ft_printf("Error\n");
 			exit(1);
