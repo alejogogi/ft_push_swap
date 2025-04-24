@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 18:14:18 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/20 19:50:19 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/23 19:31:56 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	case_seven(t_stacks **stakcs)
 			else
 				reverse_rotate(&(*stakcs)->stack_a, 'a');
 		}
-		push((*stakcs)->stack_a, (*stakcs)->stack_b, 'b');
+		push(&(*stakcs)->stack_a, &(*stakcs)->stack_b, 'b');
 	}
 	case_three(&(*stakcs)->stack_a, 'a');
 	while ((*stakcs)->stack_b->size > 0)
 	{
-		push((*stakcs)->stack_b, (*stakcs)->stack_a, 'a');
+		push(&(*stakcs)->stack_b, &(*stakcs)->stack_a, 'a');
 	}
 	print_list((*stakcs)->stack_a);
 }

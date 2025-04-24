@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithms.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:18:13 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/22 17:50:29 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/04/23 19:52:55 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,15 @@ void	algorithms(t_stacks *t_stacks, int ln)
 		free_nodes(t_stacks);
 		exit(0);
 	}
-	if (ln == 2)
+	else if (ln == 2)
 		swap(&(t_stacks->stack_a), 'a');
-	if (ln == 3)
+	else if (ln == 3)
 		case_three(&(t_stacks->stack_a), 'a');
-	if (ln <= 7)
+	else if (ln <= 7)
 		case_seven(&(t_stacks));
+	else if (ln > 7)
+	{
+		k_sort1(&t_stacks, ln);
+		k_sort2(&t_stacks, ln);		
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 21:39:07 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/13 23:00:30 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/23 19:46:47 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,23 @@ void	assing_index(int *array, int *num, int *indexes, int ln)
 	}
 }
 
+int	count_index(t_node *node, int index)
+{
+	int	counter;
+
+	if (!node)
+		return (-1);
+	counter = 0;
+	while (node)
+	{
+		if (node->index == index)
+			return (counter);
+		node = node->next;
+		counter++;
+	}
+	return (0);
+}
+
 void	cpy_nums(int ln, int *array, int *num)
 {
 	int	i;
@@ -60,9 +77,6 @@ int	*ft_index(int *array, int ln)
 	cpy_nums(ln, array, num);
 	bubble_sort(ln, num);
 	assing_index(array, num, indexes, ln);
-	print_array(num, ln, "ordenada");
-	ft_printf("\n");
-	print_array(indexes, ln, "index");
 	free(num);
 	return (indexes);
 }

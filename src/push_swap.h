@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/20 19:49:23 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/23 19:30:50 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ int					*ext_atoi(int ln, int argc, char **argv);
 int					*save_mem(int ln);
 void				check_same(int *array, int ln);
 int					*ft_index(int *array, int ln);
+int					count_index(t_node *node, int index);
 void				bubble_sort(int ln, int *num);
+
 void	print_array(int *array, int size, char *word); // borrar no permitida.
 void				print_list(t_stack *head);
 int					ft_limits(long res);
@@ -66,9 +68,12 @@ void				reverse_rotate(t_stack **stack, char letter);
 void				swap(t_stack **stack, char letter);
 void				push_specific_node(t_stack **stack_a, t_stack **stack_b,
 						t_node *nodo, char l);
-void				push(t_stack *from, t_stack *to, char letter);
+void				push(t_stack **from, t_stack **to, char letter);
+
 
 void				case_three(t_stack **stack, char letter);
 void				case_seven(t_stacks **stakcs);
+void				k_sort2(t_stacks **s, int ln);
+void				k_sort1(t_stacks **stacks, int ln);
 
 #endif

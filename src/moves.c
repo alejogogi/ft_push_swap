@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 18:26:52 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/19 13:57:05 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/23 19:30:26 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,18 @@ void	reverse_rotate(t_stack **stack, char letter)
 	ft_printf("%c\n", letter);
 }
 
-void	push(t_stack *from, t_stack *to, char letter)
+void	push(t_stack **from, t_stack **to, char letter)
 {
 	t_node	*temp;
 
-	if (!from || from->size == 0)
+	if (!from || (*from)->size == 0)
 		return ;
-	temp = from->head;
-	from->head = from->head->next;
-	temp->next = to->head;
-	to->head = temp;
-	from->size--;
-	to->size++;
+	temp = (*from)->head;
+	(*from)->head = (*from)->head->next;
+	temp->next = (*to)->head;
+	(*to)->head = temp;
+	(*from)->size--;
+	(*to)->size++;
 	ft_printf("p");
 	ft_printf("%c\n", letter);
 }
