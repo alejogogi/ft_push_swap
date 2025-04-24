@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ksort.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:43:38 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/23 20:09:37 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/24 20:53:58 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,20 @@ void	k_sort1(t_stacks **stacks, int ln)
 			push(&(*stacks)->stack_a, &(*stacks)->stack_b, 'b');
 			i++;
 		}
-		if ((*stacks)->stack_a->head->index <= i + range)
+		else if ((*stacks)->stack_a->head->index <= i + range)
 		{
 			push(&(*stacks)->stack_a, &(*stacks)->stack_b, 'b');
 			rotate(&(*stacks)->stack_b, 'b');
 			i++;
 		}
 		else
+		{
 			rotate(&(*stacks)->stack_a, 'a');
+		}
 	}
 }
+
+#include <stdio.h>
 
 void	k_sort2(t_stacks **s, int ln)
 {
@@ -60,12 +64,18 @@ void	k_sort2(t_stacks **s, int ln)
 		if (count_index((*s)->stack_b->head, ln) <= (*s)->stack_b->size / 2)
 		{
 			while ((*s)->stack_b->head->index != ln)
+			{
 				rotate(&(*s)->stack_b, 'b');
+			}
+		push(&(*s)->stack_b, &(*s)->stack_a, 'a');
 		}
 		else
 		{
 			while ((*s)->stack_b->head->index != ln)
+			{
 				reverse_rotate(&(*s)->stack_b, 'b');
+			}
+			push(&(*s)->stack_b, &(*s)->stack_a, 'a');
 		}
 	}
 }

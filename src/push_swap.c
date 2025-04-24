@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/23 19:42:42 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/24 19:01:56 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 	check_same(array, ln);
 	index = ft_index(array, ln);
 	stacks = create_stack();
-	data_stack_a(stacks, array, index, ln);
+	data_stack_a(&(stacks), array, index, ln);
 	algorithms(stacks, ln);
 	free(array);
 	free(index);

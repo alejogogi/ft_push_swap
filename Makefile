@@ -6,13 +6,13 @@
 #    By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 17:21:35 by alejagom          #+#    #+#              #
-#    Updated: 2025/04/22 17:49:41 by alejagom         ###   ########.fr        #
+#    Updated: 2025/04/24 19:56:31 by alejagom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 SRC_DIR = ./src
 SRC = $(wildcard $(SRC_DIR)/*.c) 
 OBJ = $(SRC:.c=.o)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 18:26:52 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/23 19:30:26 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/24 20:49:05 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,39 +30,37 @@ void	swap(t_stack **stack, char letter)
 
 void	rotate(t_stack **stack, char letter)
 {
-	t_node	*first;
-	t_node	*finish;
+	t_node	*current;
+	t_node	*temp;
 
-	first = (*stack)->head;
-	finish = (*stack)->head;
-	while (finish->next != NULL)
-	{
-		finish = finish->next;
-	}
-	(*stack)->head = first->next;
-	finish->next = first;
-	first->next = NULL;
+	if (!(*stack)->head || !(*stack)->head->next)
+		return ;
+	temp = (*stack)->head;
+	(*stack)->head = temp->next;
+	current = (*stack)->head;
+	while (current->next)
+		current = current->next;
+	current->next = temp;
+	temp->next = NULL;
 	ft_printf("r");
 	ft_printf("%c\n", letter);
 }
 
 void	reverse_rotate(t_stack **stack, char letter)
 {
-	t_node	*finish;
-	t_node	*before;
+	t_node	*current;
+	t_node	*temp;
 
-	finish = (*stack)->head;
-	before = NULL;
-	while (finish->next != NULL)
-	{
-		before = finish;
-		finish = finish->next;
-	}
-	before->next = NULL;
-	finish->next = (*stack)->head;
-	(*stack)->head = finish;
-	ft_printf("rr");
-	ft_printf("%c\n", letter);
+	if (!(*stack)->head || !(*stack)->head->next)
+			return;
+	current = (*stack)->head;
+	while (current->next->next)
+		current = current->next;
+	temp = current->next;
+	current->next = NULL;
+	temp->next = (*stack)->head;
+	(*stack)->head = temp;
+	ft_printf("rr%c\n", letter);
 }
 
 void	push(t_stack **from, t_stack **to, char letter)

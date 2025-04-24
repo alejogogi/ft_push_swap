@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   nodos.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 16:37:12 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/19 14:01:44 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/24 20:55:05 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,28 @@ t_stacks	*create_stack(void)
 	return (stacks);
 }
 
-t_node	*create_node(int num, int index, t_stacks *stacks)
+t_node	*create_node(int num, int index, t_stacks **stacks)
 {
 	t_node	*new_node;
 
-	if (!stacks || !stacks->stack_a)
+	if (!stacks || !(*stacks)->stack_a)
 		return (NULL);
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
 		exit(1);
 	new_node->num = num;
 	new_node->index = index;
-	new_node->next = stacks->stack_a->head;
-	stacks->stack_a->head = new_node;
-	stacks->stack_a->size++;
+	new_node->next = (*stacks)->stack_a->head;
+	(*stacks)->stack_a->head = new_node;
+	(*stacks)->stack_a->size++;
 	return (new_node);
 }
 
-void	data_stack_a(t_stacks *stacks, int *array, int *index, int ln)
+void	data_stack_a(t_stacks **stacks, int *array, int *index, int ln)
 {
 	int	i;
 
-	if (!stacks || !stacks->stack_a)
+	if (!stacks || !(*stacks)->stack_a)
 	{
 		ft_printf("error: estructura o parametros no iniciados");
 		return ;
@@ -68,7 +68,7 @@ void	data_stack_a(t_stacks *stacks, int *array, int *index, int ln)
 	i = ln - 1;
 	while (i >= 0)
 	{
-		create_node(array[i], index[i], stacks);
+		create_node(array[i], index[i], &(*stacks));
 		i--;
 	}
 }

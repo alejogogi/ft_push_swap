@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cases.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
+/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 18:14:18 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/23 19:31:56 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/04/24 20:49:58 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,4 @@ void	case_seven(t_stacks **stakcs)
 	{
 		push(&(*stakcs)->stack_b, &(*stakcs)->stack_a, 'a');
 	}
-	print_list((*stakcs)->stack_a);
 }
