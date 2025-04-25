@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 18:26:52 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/24 20:49:05 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:22:20 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	reverse_rotate(t_stack **stack, char letter)
 	t_node	*temp;
 
 	if (!(*stack)->head || !(*stack)->head->next)
-			return;
+		return ;
 	current = (*stack)->head;
 	while (current->next->next)
 		current = current->next;

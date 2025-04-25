@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:43:38 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/24 20:53:58 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:21:29 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ void	k_sort1(t_stacks **stacks, int ln)
 	}
 }
 
-#include <stdio.h>
-
 void	k_sort2(t_stacks **s, int ln)
 {
 	while (ln--)
@@ -67,7 +65,7 @@ void	k_sort2(t_stacks **s, int ln)
 			{
 				rotate(&(*s)->stack_b, 'b');
 			}
-		push(&(*s)->stack_b, &(*s)->stack_a, 'a');
+			push(&(*s)->stack_b, &(*s)->stack_a, 'a');
 		}
 		else
 		{

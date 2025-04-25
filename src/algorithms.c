@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:18:13 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/24 19:12:41 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:20:32 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ void	algorithms(t_stacks *t_stacks, int ln)
 	else if (ln > 7)
 	{
 		k_sort1(&t_stacks, ln);
-		k_sort2(&t_stacks, ln);		
+		k_sort2(&t_stacks, ln);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 16:37:12 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/24 20:55:05 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:52:07 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,20 @@ void	data_stack_a(t_stacks **stacks, int *array, int *index, int ln)
 		create_node(array[i], index[i], &(*stacks));
 		i--;
 	}
+}
+
+t_node	*search_min(t_stack *stack)
+{
+	t_node	*temp;
+	t_node	*min_node;
+
+	temp = stack->head;
+	min_node = temp;
+	while (temp)
+	{
+		if (temp->index < min_node->index)
+			min_node = temp;
+		temp = temp->next;
+	}
+	return (min_node);
 }
