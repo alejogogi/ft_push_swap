@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/25 17:25:19 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:12:14 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	index = ft_index(array, ln);
 	stacks = create_stack();
 	data_stack_a(&(stacks), array, index, ln);
-	algorithms(stacks, ln);
+	algorithms(stacks, ln, array, index);
 	free(array);
 	free(index);
 	free_nodes(stacks);

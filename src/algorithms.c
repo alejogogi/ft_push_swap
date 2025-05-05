@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/11 18:18:13 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/05/05 18:26:00 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:11:15 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,29 @@ void	bubble_sort(int ln, int *num)
 	}
 }
 
-int	ordered_list(t_stacks *stacks)
+int ordered_list(t_stack *stack)
 {
-	t_node	*temp;
+    t_node *temp;
 
-	if (!stacks || !stacks->stack_a->head || stacks->stack_a->head->next)
-		return (1);
-	temp = stacks->stack_a->head;
-	while (temp->next)
-	{
-		if (temp->index > temp->next->index)
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
+    if (!stack || !stack->head || !stack->head->next)
+        return (1);
+
+    temp = stack->head;
+    while (temp->next)
+    {
+        if (temp->index > temp->next->index)
+            return (1);
+        temp = temp->next;
+    }
+    return (0);
 }
 
-void	algorithms(t_stacks *t_stacks, int ln)
+void	algorithms(t_stacks *t_stacks, int ln, int *ar, int *in)
 {
-	if (ordered_list(t_stacks))
+	if (!ordered_list(t_stacks->stack_a))
 	{
+		free(ar);
+		free(in);
 		free_nodes(t_stacks);
 		exit(0);
 	}

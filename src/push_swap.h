@@ -6,7 +6,7 @@
 /*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/25 18:04:04 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:11:27 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void				reverse_rotate(t_stack **stack, char letter);
 void				swap(t_stack **stack, char letter);
 void				push(t_stack **from, t_stack **to, char letter);
 
-void				algorithms(t_stacks *t_stacks, int ln);
+void				algorithms(t_stacks *t_stacks, int ln, int *ar, int *in);
 void				bubble_sort(int ln, int *num);
 void				case_three(t_stack **stack, char letter);
 void				case_seven(t_stacks **stakcs);
