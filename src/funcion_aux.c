@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:20:16 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/12 12:22:37 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/05/07 20:08:19 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int	first_arg(char *argv)
 	if (o < 2)
 	{
 		free_wd(one);
-		ft_printf("Error\n");
 		return (1);
 	}
 	free_wd(one);
