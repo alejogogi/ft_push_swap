@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejagom <alejagom@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/05/05 19:12:14 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/05/07 20:43:38 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(int argc, char **argv)
 	ln = 0;
 	if (argc < 2)
 	{
-		ft_printf("Error\n");
 		return (0);
 	}
 	ln = check_leng(argc, argv);

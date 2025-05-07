@@ -6,7 +6,7 @@
 /*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 19:20:16 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/05/07 20:08:19 by alejogogi        ###   ########.fr       */
+/*   Updated: 2025/05/07 21:01:00 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	first_arg(char *argv)
 
 	o = 0;
 	one = ft_split(argv, ' ');
+	if (one[o] == NULL)
+		ft_printf("Error\n");
 	while (one[o])
 	{
 		if (check_digit(one[o]))
